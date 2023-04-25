@@ -13,6 +13,7 @@ public class DataSQL {
     private static QueryRunner runner = new QueryRunner();
 
     private DataSQL() {
+
     }
 
     private static Connection getConn() throws SQLException {
