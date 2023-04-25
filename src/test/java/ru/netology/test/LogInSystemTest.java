@@ -1,5 +1,6 @@
 package ru.netology.test;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.data.DataSQL;
@@ -9,6 +10,11 @@ import ru.netology.page.VerificationPage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LogInSystemTest {
+
+    @AfterAll
+    static void clearDB() {
+        DataSQL.cleanDataBase();
+    }
 
     LoginPage loginPage;
 

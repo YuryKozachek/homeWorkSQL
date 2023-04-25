@@ -1,5 +1,6 @@
 package ru.netology.data;
 
+import lombok.SneakyThrows;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
@@ -27,5 +28,14 @@ public class DataSQL {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @SneakyThrows
+    public static void cleanDataBase() {
+        val connection = getConn();
+        runner.execute(connection, "DELETE FROM auth_codes");
+        runner.execute(connection, "DELETE FROM card_transactions");
+        runner.execute(connection, "DELETE FROM cards");
+        runner.execute(connection, "DELETE FROM users");
     }
 }
